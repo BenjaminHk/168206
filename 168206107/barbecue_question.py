@@ -1,4 +1,4 @@
-class barbecue:
+class barbecue():
     def __init__(self,num,interval):
         self.customers = []
         self.num_customer =num
