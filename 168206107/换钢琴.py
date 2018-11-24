@@ -34,15 +34,16 @@ class Dijkstra_algorithm():
         for key in self.graph.keys():
             if len(self.graph[key]) == 0:
                 node = key
-        lines = node
+        lines =[ node ]
         for i in range(0,len(self.parents)):
            for key,value in self.parents.items():
                if key == node:
                    node = value
-                   lines += '-'+node
+                   lines.append(node)
+        lines.reverse()
+        lines = '->'.join(lines)
         print(lines)
-        
-        
+              
 graph = {
         "乐谱":{
                 "唱片":5,
