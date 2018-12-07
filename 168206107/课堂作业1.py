@@ -11,28 +11,33 @@ def search(start,end,*ad):
                 if adict[dot][i] == adict[neighbour][i]:
                     xiangsidu += 1 
                 if xiangsidu == len(adict[dot])-1:
-                    if adict[neighbour] not in graph.keys():
-                        graph[adict[dot]].append(adict[neighbour])
+                    graph[adict[dot]].append(adict[neighbour])
+    for key,value in graph.items():
+        if key in value:
+            graph[key].remove(key)
+        if start in value:
+            graph[key].remove(start)
     for key in graph.keys():
         graph[key] = list(set(graph[key]))
     search_queue = deque()
     search_queue += graph[start]
-    searched = []
+    searched = [start]
     line = []
-    while search_queue:
+    while search_queue :
         person = search_queue.popleft()
         if person not in searched:
             if person_is(person,end):
                 while person != start:
                     for key,value in graph.items():
-                        if  person in value:
-                            line.append(key)
+                        if person in value and key in searched:
+                            line.append(person)
                             person = key
                 line.reverse()
                 return line
             else:
                 search_queue += graph[person]
                 searched.append(person)
+        
     return False
 def person_is(this_word,end):
     if this_word == end:
@@ -44,7 +49,6 @@ def person_is(this_word,end):
             if panduan == end:
                 return True
     return False
-
-print(search('hit','cog','hot','dot','dog','lot','log'))  
+print(search('hit','cog','lot','dot','dog','log','hot'))  
         
    
