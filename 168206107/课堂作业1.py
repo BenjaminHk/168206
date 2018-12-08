@@ -1,4 +1,5 @@
-from collections import deque
+#第一种解法利用广度优先，代码抄书上的所以变量名有点乱
+from collections import deque  
 class dd():
     def search(self,start,end,*ad):
         adict = list(ad)
@@ -56,7 +57,7 @@ print(a.search('adf','skc','err','adf','cvj','adc','sdc'))
 
 
 
-  #另一种解法 
+  #另一种解法 利用各个单词的ACSII形成一个表格，不用，然后进行单词间的相似度的查找，省去了对单词的可能变换的单词的枚举
     def solution(start,end,*ad):
     adict = list(ad)
     adict.append(start)
