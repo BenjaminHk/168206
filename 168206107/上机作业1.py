@@ -34,6 +34,7 @@ class dd():
                             if person in value and key in searched :
                                 line.append(person)
                                 person = key
+                                break
                     line.reverse()
                     return line
                 else:
@@ -52,7 +53,7 @@ class dd():
         return False
 
 a = dd()
-print(a.search('hit','cog','hig','cig','dog','log','hot'))
+print(a.search('hit','cog','hot','dot','dog','lot','log'))
 print(a.search('adf','skc','err','adf','cvj','adc','sdc'))
 
 
