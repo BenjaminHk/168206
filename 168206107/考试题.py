@@ -25,6 +25,7 @@ class Solution():
         for key in zhenzhibiao.keys():
             zhenzhibiao[key] =  float('inf')
             conflict[key] = 0
+        num = 0
         for this_true in peoples:
             for people,talk in panduan.items():
                 if this_true == people:
@@ -46,6 +47,7 @@ class Solution():
                         conflict[talk] += 1
                     zhenzhibiao[talk] = 0
             if max(conflict.values()) < 2 :
+                num += 1
                 people = []
                 for key,value in zhenzhibiao.items():
                     if value == 1:
@@ -58,6 +60,8 @@ class Solution():
             for key in zhenzhibiao.keys():
                 zhenzhibiao[key] =  float('inf')
                 conflict[key] = 0
+        if num == 0:
+            print('错误')
 a = Solution()
 a.solution('A:非A','B:D','C:B','D:非D')
 
